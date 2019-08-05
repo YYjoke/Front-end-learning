@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+ <meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+ <meta http-equiv='X-UA-Compatible' content='ie=edge'> 
+<title>Document</title>
+<script src='./lib/vue.min.js'></script>
+</head>
+<body>
+<div id="app">
+    <p v-for="(item,i) in list">{{ i }}------{{  item }}</p>
+    <p v-for="user in list">{{user.name}}---{{user.age}}</p>
+    <p v-for="(val,key,i) in user">值是：{{val}}---键是：{{key}}---索引是：{{i}}</p>   
+    <p v-for="i in list"> {{i}} </p>
+</div>
+ 
+
+ 
+    <script>
+       var vm = new Vue({
+       el:'#app',
+       data:{
+        //    list:[1,2,3,4],
+           list:[
+               {name:'gsan',age:16},
+               {name:'zaan',age:12},
+               {name:'zhsan',age:14},
+               {name:'zhangs',age:11},
+
+           ],
+           user:{
+               name:'shidake',
+               age:19,
+               id:1
+           },
+           
+       },
+       methods:{}
+     })
+    </script>
+</body>
+</html>

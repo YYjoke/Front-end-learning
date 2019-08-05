@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <input type="button" value="跑起来" @click="lang">
+        <input type="button" value="打住" @click="stop">
+        <p>{{msg}}</p>
+    </div>
+
+    <script>
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            msg:'猥琐发育，别浪！能赢!!!!!',
+            intervalId:null
+        },
+        methods:{
+           lang() {
+                var _this = this
+              this.intervalId=setInterval(function(){
+                var star = _this.msg.substring(0,1)
+                var end = _this.msg.substring(1)
+                _this.msg = end + star
+               },400)
+               
+            },
+            stop (){
+                clearInterval(this.intervalId)
+            }
+        }
+    })
+    </script>
+</body>
+</html>

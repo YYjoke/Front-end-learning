@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <!-- <script src="./lib/vue.min.js"></script> -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui@2.11.0/lib/index.js"></script>
+    <style>
+        /* 搜索框 */
+
+        .el-col {
+            border-radius: 4px;
+        }
+
+        .grid-content {
+            border-radius: 4px;
+            min-height: 36px;
+        }
+
+        .row-bg {
+            padding: 10px 0;
+            background-color: #f9fafc;
+        }
+
+        /* 下拉菜单 */
+        .el-dropdown-link {
+            cursor: pointer;
+            color: #409EFF;
+        }
+
+        .el-icon-arrow-down {
+            font-size: 14px;
+        }
+
+        /* 主框架 */
+        .el-header {
+            position: fixed;
+            height: 10%;
+            right: 0;
+            width: 85%;
+            top: 0px;
+            /* margin-bottom: 0px; */
+            background-color: #B3C0D1;
+            color: #333;
+            /* text-align: center; */
+            /* line-height: 60px; */
+        }
+
+        .el-footer {
+            position: fixed;
+            right: 0;
+            width: 85%;
+            bottom: 0px;
+            /* height: 5%; */
+            margin-bottom: 0px;
+            background-color: #B3C0D1;
+            color: #333;
+            text-align: center;
+            /* line-height: 60px; */
+        }
+
+        .el-aside {
+            position: fixed;
+            height: 100%;
+
+            background-color: #484848;
+            color: #333;
+            text-align: center;
+            /* height: 100%; */
+            /* line-height: 1000px; */
+        }
+
+        .el-main {
+            position: fixed;
+            right: 0;
+            width: 85%;
+            top: 60px;
+            height: 100%;
+            background-color: #E9EEF3;
+            color: #333;
+            text-align: center;
+            /* line-height: 160px; */
+        }
+
+        /* body>.el-container {
+            margin-bottom: 40px;
+        } */
+    </style>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <el-container>
+            <el-aside width="15%">
+                <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+                    background-color="#484848" text-color="#fff" active-text-color="#ffd04b">
+                    <el-submenu index="1">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span>导航一</span>
+                        </template>
+                        <el-menu-item-group>
+                            <template slot="title">分组一</template>
+                            <el-menu-item index="1-1">选项1</el-menu-item>
+                            <el-menu-item index="1-2">选项2</el-menu-item>
+                        </el-menu-item-group>
+                        <el-menu-item-group title="分组2">
+                            <el-menu-item index="1-3">选项3</el-menu-item>
+                        </el-menu-item-group>
+                        <el-submenu index="1-4">
+                            <template slot="title">选项4</template>
+                            <el-menu-item index="1-4-1">选项1</el-menu-item>
+                        </el-submenu>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span>导航一</span>
+                        </template>
+                        <el-menu-item-group>
+                            <template slot="title">分组一</template>
+                            <el-menu-item index="2-1">选项1</el-menu-item>
+                            <el-menu-item index="2-2">选项2</el-menu-item>
+                        </el-menu-item-group>
+                        <el-menu-item-group title="分组2">
+                            <el-menu-item index="2-3">选项3</el-menu-item>
+                        </el-menu-item-group>
+                        <el-submenu index="2-4">
+                            <template slot="title">选项4</template>
+                            <el-menu-item index="2-4-1">选项1</el-menu-item>
+                        </el-submenu>
+                    </el-submenu>
+
+
+                </el-menu>
+            </el-aside>
+
+            <el-header>
+
+                <div class="grid-content bg-purple-dark">
+                    人员分配
+                </div>
+
+            </el-header>
+
+            <el-main>
+
+
+                <div class="panel-body form-inline">
+                    <!-- 数据添加功能 -->
+                    <!-- <label for="">
+                                        ID:
+                                        <input type="text" class="form-control" v-model = "phone">
+                                    </label>
+                                    <label for="">
+                                        Name:
+                                        <input type="text" class="form-control" v-model = "name">
+                                    </label> -->
+
+                    <!-- <input type="button" value="添加" class="btn btn-primary" @click="add"> -->
+
+
+                    <!-- 搜索区 -->
+                    <el-row>
+                        <el-col :span="2">
+                            <div class="grid-content ">姓名/手机号:</div>
+                        </el-col>
+                        <el-col :span="7">
+                            <div class="grid-content bg-purple">
+                                <el-input v-model="phoneKeywords" placeholder="请输入内容"></el-input>
+
+                            </div>
+                        </el-col>
+                        <el-col :span="2">
+                            <div class="grid-content ">人员状态：</div>
+                        </el-col>
+                        <el-col :span="7">
+                            <div class="grid-content bg-purple">
+                                <el-input v-model="statusKeywords" placeholder="请输入内容"></el-input>
+                            </div>
+                        </el-col>
+                        <el-col :span="2">
+                            <el-button type="primary">搜索</el-button>
+                        </el-col>
+                        <el-col :span="2">
+                            <el-dropdown>
+                                <span class="el-dropdown-link">
+                                    展开<i class="el-icon-arrow-down el-icon--right"></i>
+                                </span>
+                                <el-dropdown-menu slot="dropdown">
+                                    <el-dropdown-item>1</el-dropdown-item>
+                                    <el-dropdown-item>2</el-dropdown-item>
+
+                                </el-dropdown-menu>
+                            </el-dropdown>
+                        </el-col>
+
+                    </el-row>
+                    <el-row>
+                        <el-col :span="3">
+                            <el-button type="primary">按钮A</el-button>
+                        </el-col>
+                        <el-col :span="3">
+                            <el-button type="primary">按钮B</el-button>
+                        </el-col>
+                        <el-col :span="18">
+                            </el-con>
+                    </el-row>
+
+                </div>
+                <!-- 表格区 -->
+                <template>
+                    <el-table :data="search(phoneKeywords,statusKeywords)" height="700px" border style="width: 100%" :key="list.id">
+                        <el-table-column prop="name" label="人员姓名" width="180">
+                        </el-table-column>
+                        <el-table-column prop="phone" label="手机号" width="180">
+                        </el-table-column>
+                        <el-table-column prop="howCome" label="来源">
+                        </el-table-column>
+                        <el-table-column prop="where" label="人员归属">
+                        </el-table-column>
+                        <el-table-column prop="status" label="人员状态">
+                        </el-table-column>
+                        <el-table-column prop="data" label="注册时间">
+                        </el-table-column>
+                        <el-table-column prop="" label="操作">
+                            <template slot-scope="scope">
+                                    <el-button @click.native.prevent="" type="text"
+                                    size="small">
+                                   ###
+                                </el-button>
+                                <el-button @click.native.prevent="deleteRow(scope.$index, list)" type="text"
+                                    size="small">
+                                    移除
+                                </el-button>
+                            </template>
+                        </el-table-column>
+
+                    </el-table>
+                </template>
+<!--                 
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>人员姓名</th>
+                            <th>手机号</th>
+                            <th>来源</th>
+                            <th>人员归属</th>
+                            <th>人员状态</th>
+                            <th>注册时间</th>
+                            <th>操作</th>
+
+                        </tr>
+                    </thead>
+                    <tbody> -->
+                        <!-- 自定义一个search方法    把关键字通过传参的形式传递给search方法 -->
+                        <!-- 在searrch方法内部通过实行for循环把所有符合关键字搜索的数据放到一个新数组中  返回 -->
+
+
+                        <!-- <tr v-for="item in search(phoneKeywords,statusKeywords)" :key="item.id">
+                            <td>{{item.name}}</td>
+                            <td v-text="item.phone"></td>
+                            <td>{{item.howCome}}</td>
+                            <td>{{item.where}}</td>
+                            <td>{{item.status}}</td>
+                            <td>{{item.data}}</td>
+
+                            <td>
+                                <a href="" @click.prevent="del(item.id)">详情</a>
+                                <a href="" @click.prevent="del(item.id)">删除</a>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </el-main>
+            <el-footer>Footer</el-footer>
+        </el-container>
+
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                // d:new Date(),
+                input: '',
+                phone: '',
+                name: '',
+                phoneKeywords: '',
+                statusKeywords: '',
+                list: [{
+                        name: '老王',
+                        phone: '188888878',
+                        howCome: '自己报名',
+                        where: '平台',
+                        status: '求职中',
+                        data: new Date(),
+                    },
+                     {
+                        name: '老王',
+                        phone: '188888388',
+                        howCome: '自己报名',
+                        where: '平台',
+                        status: '在岗',
+                        data: 'd',
+                    }]
+            },
+            methods: {
+                // 移出表格行
+                deleteRow(index, rows) {
+                    rows.splice(index, 1);
+                },
+                add() {
+                    // 获取id和name 直接从data上获取
+                    // 组织处一个对象
+                    // 把这个对象，调用数组的相关方法，添加到当前的data上的list上
+                    // 在vue中  已经实现了数据的双向绑定，每当我们 修改了data中的数据，vue会默认监听到数据的改动，自动把最新的数据应用到页面上
+                    var people = {
+                        name: this.id,
+                        phone: this.name,
+                        data: new Date()
+                    }
+                    this.list.push(people)
+                },
+
+
+                // 删除方法
+                del(id) {
+                    // 根据id删除数据
+                    // 找到索引 直接调用数组的splice方法
+                    this.list.some((item, i) => {
+                        if (item.id == id) {
+                            this.list.splice(i, 1)
+                        }
+                        return true
+                    })
+
+
+
+                    // var index = this.list.findIndex(item =>{
+                    //     id(item.id == id){
+                    //         return true
+                    //     }
+                    // })
+
+                    // this.list.splice(index,1)
+
+                },
+                // 搜索方法
+                search(phoneKeywords, statusKeywords) { //根据关键字进行数据的搜索
+                    var newList = []
+                    this.list.forEach(item => {
+                        if (item.status.indexOf(statusKeywords) !== -1) {
+                            newList.push(item)
+                        }
+                        if (item.phone.indexOf(phoneKeywords) !== -1) {
+                            newList.push(item)
+                        }
+
+                    })
+                    return newList
+
+                },
+                // 导航栏
+                handleOpen(key, keyPath) {
+                    // console.log(key, keyPath);
+                },
+                handleClose(key, keyPath) {
+                    // console.log(key, keyPath);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
