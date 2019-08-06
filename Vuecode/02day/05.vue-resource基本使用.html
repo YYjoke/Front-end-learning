@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../lib/vue.min.js'></script>
+    <!-- vue-resource依赖于vue -->
+    <!-- <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script> -->
+    <script src="../lib/vue-resource.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="get请求" @click="getInfo">
+        <input type="button" value="post请求" @click="postInfo">
+
+    </div>
+
+
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                getInfo() {
+                    // 发起get请求之后  通过.then 来设置成功的回调函数
+                    this.$http.get('http://vue.studyit.io/api/getlunbo').then(function (result) {
+                        console.log(result.value)
+                    })
+
+                },postInfo(){
+                    // 发起post请求  application/x-www-form-urllencoded
+                    // 手动发起的Post 请求  默认没有表单格式 所以有的服务器处理不了
+                    // 通过post方法的第三个参数 {emulateJSON：true} 设置 提交的内容类型  为 普通表单数据格式
+                    this.$http.get('http://vue.studyit.io/api/post',{},{emulateJSON:true}).then(result =>{
+                        console.log(result.body)
+                    })
+                },
+                jsonpInfo(){
+                    // 发起jsonp请求
+                    this.$http.get('http://vue.studyit.io/api/jsonp').then(result =>{
+                        console.log(result.body)
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

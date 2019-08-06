@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <script src='../lib/vue.min.js'></script>
+    <script src="../lib/vue-resource.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    Id:
+                    <input type="text" v-model="userId">
+                </label>
+                <label>
+                    Name:
+                    <input type="text" v-model="username" class="form-control">
+                </label>
+                <input type="button" value="添加" @click="add" class="btn btn-primary">
+            </div>
+        </div>
+
+
+
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,i) in list" :key="item.id">
+                    <td>{{item.userId}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.ctime}}</td>
+                    <td><a href="#">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                userId: '',
+                username: '',
+                list: [ //存放所有品牌列表的数组
+                    // {
+                    //     id: '1',
+                    //     name: '奔驰',
+                    //     ctime: new Date()
+                    // },
+                    // {
+                    //     id: '2',
+                    //     name: '宝马',
+                    //     ctime: new Date()
+                    // },
+                    // {
+                    //     id: '3',
+                    //     name: '玛莎拉蒂',
+                    //     ctime: new Date()
+                    // },
+                ]
+            },
+            created() {
+                // 当vm实例的data 和methods 初始化完毕后  vm实例会自动执行created 这个生命周期函数
+                this.getAllList()
+            },
+            methods: {
+                add() {
+
+                },
+
+                getAllList() { //获取所有的品牌列表
+                    // 1.由于已经导入了 Vue-resource这个包  所以 可以直接通过 this.$http来发起数据请求
+                    // 2.根据接口API文档  知道 获取列表的时候  应该发起一个get请求
+                    // 3.this.$http.get('url').then(function(result){})
+                    // 4.当通过then 指定回调函数之后  在回调函数中  可以拿到数据服务器返回的result
+                    // 5.先判断 result.status 是否等于0 如果等于0 就成功了  可以把 result.message  府志给this.list  如果不等于0  可以弹窗提醒  获取数据失败
+
+                    this.$http.get('http://music.163.com/api/playlist/detail?id=19723756').then(result => {
+                        // 注意  通过$http 获取到的数据  都在 result.body 中放着
+                        var result = result.body
+                        if (result.status === 0) {
+                            // 成功了
+                            this.list = result.message
+                        } else {
+                            // 失败了
+                            alert("获取数据失败！")
+                        }
+                    })
+
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
