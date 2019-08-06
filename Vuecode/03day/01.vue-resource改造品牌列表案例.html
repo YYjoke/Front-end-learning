@@ -48,7 +48,7 @@
                     <td>{{item.userId}}</td>
                     <td>{{item.username}}</td>
                     <td>{{item.ctime}}</td>
-                    <td><a href="#">删除</a></td>
+                    <td><a href="#" @click.prevent='del(item.userId)'>删除</a></td>
                 </tr>
             </tbody>
         </table>
@@ -58,6 +58,7 @@
 
 
     <script>
+        Vue.http.options.root = 'http://localhost/'
         var vm = new Vue({
             el: '#app',
             data: {
@@ -86,7 +87,43 @@
                 this.getAllList()
             },
             methods: {
-                add() {
+                del(userId){
+                    this.$http.get('http://localhost/vue/code/03day/test.json'+userId).then(result =>{
+                        if(result.body.status === 0){
+                            //删除成功
+                            this.getAllList()
+                        }else{
+                            alert('删除失败')
+                        }
+                    })
+                },
+                add() {  //添加品牌列表到后台服务器
+                //分析：
+                // 1.查看数据API接口 需要发送一个post请求   this.$http.post
+                // 2.this.$http.post()中接收三个参数
+                // 2.1 第一个参数 ：要请求的URL地址
+                // 2.2 第二个参数 ：要提交给服务器的数据，要以对象形式提交给服务器{name：this.name }
+                // 2.3 第三个参数 ：是一个配置对象， 要以哪种表单数据类型提交过去
+                // {emulateJSON ： true } 以普通表单格式，将数据提交给服务器
+                // application/x-www-form-urlencoded
+                // 3. 在post方法中  使用.then 来设置成功的回调函数  如果想要拿到成功的结果 需要 result.body
+
+                this.$http.post('',{name:this,name},{emulateJSON:true}).then(result => {
+
+                        if (result.body.status === 0) {
+
+                           
+                            // 成功了
+// 添加完成后，只需要手动 再调用一下 getAllList 就能刷新品牌列表了
+this.getAllList()
+//清空name
+this.name = ''                          
+                        } else {
+                            // 失败了
+                            alert("添加数据失败！")
+                           
+                        }
+                    })
 
                 },
 
@@ -97,15 +134,16 @@
                     // 4.当通过then 指定回调函数之后  在回调函数中  可以拿到数据服务器返回的result
                     // 5.先判断 result.status 是否等于0 如果等于0 就成功了  可以把 result.message  府志给this.list  如果不等于0  可以弹窗提醒  获取数据失败
 
-                    this.$http.get('http://music.163.com/api/playlist/detail?id=19723756').then(result => {
+                    this.$http.get('vue/code/03day/test.json').then(result => {
                         // 注意  通过$http 获取到的数据  都在 result.body 中放着
                         var result = result.body
                         if (result.status === 0) {
                             // 成功了
-                            this.list = result.message
+                            this.list = result.rows
                         } else {
                             // 失败了
                             alert("获取数据失败！")
+                            // console.log(result)
                         }
                     })
 
