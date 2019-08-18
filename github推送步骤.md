@@ -64,3 +64,10 @@ $ git remote add origin git@github.com:yyjoke/learngit.git
 $ git push -u origin master
 ```
 
+ 
+
+
+
+git clone url --下载一个项目和他的整个代码历史
+
+git pull -- 命令用于从另一个存储库或本地分支获取并集成  作用：取回远程主机某个分支的更新 再与本机的指定分支合并  
