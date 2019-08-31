@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 字面量的方式 实例对象
+        var per1 = {
+            name: '小明',
+            age: '20',
+            sex: '男',
+            eat: function () {
+                console.log("臭豆腐")
+            },
+            readBook: function () {
+                console.log("挪威的森林")
+            },
+        };
+        // 调用系统的构造函数
+        var per2 = new Object();
+        per2.name = "小张";
+        per2.age = 19;
+        per2.sex = "男";
+        per2.eat = function () {
+            console.log("苹果")
+        };
+        per2.readBook = function () {
+            console.log("编程艺术")
+        };
+
+function Person (){
+
+};
+        console.log(per instanceof Person);  //以上两种方式都不是太好用  都不能确定他们的具体类型（只能确定是Object  不能确定是不是person）
+        
+
+
+        // 自定义构造函数
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.play = function () {
+                console.log("天天打游戏")
+            };
+        }
+        var per = new Person("小红", 18, "女");
+        // 数据类型判断
+        console.log(per instanceof Person);
+        console.log(per);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
