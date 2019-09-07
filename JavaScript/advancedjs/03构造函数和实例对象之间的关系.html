@@ -51,6 +51,15 @@ this.name = name;
         // 判断这个对象是不是这个数据类型
         console.log(dog.constructor == Animal);
         console.log(dog instanceof Person);
+        /*
+        实例对象的构造函数之间的关系：
+        1.实例对象时通过构造函数来创建的---创建的过程叫实例化
+        2.如何判断这个对象是不是这个数据类型？
+        1） 通过构造器的方法，实例对象.构造器 == 构造函数名字
+        2） 对象 instanceof 构造函数名字
+
+        尽量使用第二种方式来识别
+        */
     </script>
 </head>
 
