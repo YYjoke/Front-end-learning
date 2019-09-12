@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function Person(name,age){
+        this.age = age;
+        // this.sex = sex;
+        this.name = name;
+        this.eat = function(){
+            console.log("构造函数中的吃方法")
+        }
+    }
+    Person.prototype.sex = "女";
+
+
+    // 实例对象需要用到的属性 如果实例对象中不存在 那么就会去原型对象中去找，如果存在已经定义好的  就不会调用原型对象中的属性
+    var per = new Person("小张",18,"男")
+    console.log(per.sex)   // 输出 女
+    console.dir(per)
+    </script>
+
+
+
+      <script>
+        function Person(name,age,sex){
+            this.age = age;
+            this.sex = sex;
+            this.name = name;
+            this.eat = function(){
+                console.log("构造函数中的吃方法")
+            }
+        }
+        Person.prototype.sex = "女";
+        Person.prototype.eat = function(){
+            console.log("原型对象中的吃")
+        }
+    
+    
+        // 实例对象需要用到的属性 如果实例对象中不存在 那么就会去原型对象中去找，如果存在已经定义好的  就不会调用原型对象中的属性
+        var per = new Person("小张",18,"男")
+        console.log(per.sex)   // 输出 男
+        console.dir(per)
+
+        per.eat()  //构造函数中的吃
+
+        /*
+        *实例对象使用的属性或这方法，现在实例对象中查找，找到了直接使用，
+        *找不到则去实例对象的__proto__指向的原型对象prototype中找，找到了则使用，找不到则报错
+        *
+        */
+        </script>
+
+
+</body>
+</html>
