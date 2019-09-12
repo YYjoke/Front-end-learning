@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据请求</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ info }}
+      </div>
+      <script type = "text/javascript">
+        new Vue({
+          el: '#app',
+          data () {
+            return {
+              info:null
+            }
+          },
+          mounted () {
+            axios
+              .post('try.json')
+              .then(response => (this.info = response.data.id))
+              .catch(function (error) { // 请求失败处理
+                console.log(error);
+              });
+          }
+        }) 
+        
+        </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Component 标签</title>
+    <!-- <script type="text/javascript" src="../assets/js/vue.js"></script>
+     -->
+     <script src="https://cdn.bootcss.com/vue/2.6.8/vue.min.js"></script>
+</head>
+<body>
+<h1>Vue Component 标签</h1>
+<hr>
+<div id="app">
+   <component v-bind:is="who"></component>
+    <button @click="changeComponent">我变换</button>
+</div>
+</body>
+</html>
+<script>
+    var componentA={
+        template:`<div style="color:red">
+        <a href="#">我是</a>
+         componentA</div>`
+    }
+    var componentB={
+        template:`<div style="color:green">我是 componentB</div>`
+    }
+    var componentC={
+        template:`<div style="color:rebeccapurple">我是 componentC</div>`
+    }
+    var app = new Vue({
+        el:'#app',
+        data:{
+            who:'componentA'
+        },
+        components:{
+            'componentA':componentA,
+            'componentB':componentB,
+            'componentC':componentC
+        },
+        methods:{
+            changeComponent:function(){
+                if(this.who=='componentA'){
+                    this.who='componentB'
+                }else if(this.who=='componentB'){
+                    this.who='componentC'
+                }else{
+                    this.who='componentA'
+                }
+            }
+        }
+    })
+</script>

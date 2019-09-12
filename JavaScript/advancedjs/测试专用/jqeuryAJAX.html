@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <p>用AJAX获取数据</p>
+        <p id="txt"></p>
+    </div>
+    <button>
+        获取
+    </button>
+    <script>
+    $(function(){
+        $("button").click(function(){
+            $.ajax({url:''},success:function(result){
+                    $("#div").html(result)
+            })
+        })
+    })
+    </script>
+</body>
+</html>

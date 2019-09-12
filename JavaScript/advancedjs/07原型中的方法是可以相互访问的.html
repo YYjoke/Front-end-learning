@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(age) {
+            this.age = age;
+            this.sayHai = function () {
+                console.log("hello")
+                this.eat()
+            };
+            this.eat = function () {
+                console.log("吃东西")
+            }
+        }
+
+        // 实例化对象 并初始化
+        var per = new Person(20)
+        // 调用方法
+        per.sayHai();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <title>Document</title>
+    <style> 
+    .bgcolor{
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        margin: 20px;
+        float: left
+    }
+    .bgcolorred{
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="bgcolor">这是一</div>
+        <div class="bgcolor"> 这是二</div>
+        <div class="bgcolor"> 这是三</div>
+    </div>
+    <script>
+    $(function(){
+        $("#box div").hover(function(){
+        $(this).addClass("bgcolorred");
+  }).mouseout(function(){
+    $(this).removeClass("bgcolorred");
+  });
+    })
+    </script>
+</body>
+</html>
