@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 页面加载后，这个自调用函数的代码就执行完了
+
+        // (function(形参){
+        //     var num = 110;//局部变量  外部 无法访问
+        // })(实参)
+        // console.log(num)// 报错
+
+
+        (function (win) {
+            var num = 110;//局部变量
+            // js是一门动态类型语言，对象没有属性，加上一个.就有了
+            win.num = num
+        })(window)
+
+
+        // window对象可以省略
+        console.log(num)
+
+
+        // 如何把局部变量变成全局变量？
+        // 把局部变量的值给window就可以了
+    </script>
+</body>
+
+</html>

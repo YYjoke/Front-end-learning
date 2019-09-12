@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 通过自调用函数产生一个随机数对象，在自调用函数外面，调用该随机数对象方法产生随机数
+        (function (window) {
+            // 产生随机数的构造函数
+            function Random() {
+
+            }
+            // 在原型对象中添加方法
+            Random.prototype.getRandom = function (min,max) {
+                return Math.floor(Math.random()*(max-min) + min) //将产生一个10~19的随机数
+                // floor表示向下寻找   
+            }
+
+            // 把 Random 对象暴露给顶级对象window --->外部可以直接使用这个对象
+            window.Random = Random;
+        })(window)
+
+        var rm = new Random();
+        console.log(rm.getRandom(10,20))
+    </script>
+</body>
+</html>
