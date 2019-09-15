@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 页面的任何的位置，按下键盘 获取按键的值
+        document.onkeydown = function (e) {
+            if(e.keyCode == 38) {
+                console.log('往上')  
+                console.log(e.keyCode)            
+            } else if (e.keyCode == 40) {
+                console.log('往下')
+            }else{
+            console.log(e.keyCode)
+            }
+        }
+    </script>
+</body>
+
+</html>
