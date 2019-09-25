@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../scripts/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <script>
+        // 1.创建一个 XMLHttpRequest 类型的对象  相当于打开了一个浏览器
+        var xhr = new XMLHttpRequest()
+        // 2.打开一个与网址之间的链接 -- 相当于在地址栏输入访问地址
+        xhr.open('GET', '../php/txt.php')
+        // 3.通过链接发送一次请求 -- 相当于回车或者点击访问发送请求
+        xhr.send(null)
+        // 4.指定 xhr 状态变化事件处理函数 -- 相当于处理网页呈现后的操作
+        xhr.onreadystatechange = function () {
+        // 5.通过 xhr 的 readyState 判断此次请求的响应是否接收完成
+            if (this.readyState === 4) {
+        // 6.通过 xhr 的 responseText 获取到响应的响应体
+                console.log(this)
+
+            }
+        }
+    </script>
+</body>
+
+</html>

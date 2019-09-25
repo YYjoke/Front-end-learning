@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用Vue格式化日期</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+<script>
+window.onload = function(){
+    var app = new Vue({
+        el: '#app',
+        data:{
+            timeMes:""
+        },
+        created() {
+            let self = this;
+            self.timeMes = self.dataFormat(new Date())
+            new Date(element.followTime)
+        },
+        methods:{
+            dataFormat(time){
+                return `${time.getFullYear()}-${time.getMonth() + 1 >= 10 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)}-${time.getDate() >= 10 ? time.getDate() : '0' + time.getDate()}
+                     ${time.getHours() >= 10 ? time.getHours() : '0' + time.getHours()} : ${time.getMinutes()>=10?time.getMinutes():'0'+time.getMinutes()} : ${time.getSeconds() >= 10 ? time.getSeconds() : '0' + time.getSeconds()}`;
+             }
+        }
+    })
+}
+
+</script>
+<body>
+    <div id="app">
+    时间：{{timeMes}}
+    </div>
+</body>
+</html>
