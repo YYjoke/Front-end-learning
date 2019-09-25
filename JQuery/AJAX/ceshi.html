@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../scripts/jquery-3.4.1.js">
+    </script>
+</head>
+<body>
+    <div id="box" style="width: 100px;height:100px;background-color:yellow">
+        <button id="btn">
+            点击切换
+        </button>
+        这是二的内容
+    </div>
+   
+    <div id="p">
+        <p>这是一段id=p的文本</p>
+    </div>
+    <script>
+    $(function(){
+        $("#btn").click(function(){
+            $("#box").load("index.html")
+        })
+    })
+    </script>
+</body>
+</html>

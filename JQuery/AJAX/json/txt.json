@@ -1,0 +1,13 @@
+
+    
+{
+    "status" : 0 ,         
+    "msg"    : "SUCCESS",   
+    "data"   :[{            
+    "url"    : 1 ,
+    "name"  : "xiaohong"
+    },{
+    "url"    : 2,
+    "name"  : "xiaoming"
+    }]
+    }

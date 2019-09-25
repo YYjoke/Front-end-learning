@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../scripts/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <!-- <div id="box1"> 
+        <h2>这是一的内容</h2>
+    <button id="btn0">获取内容</button>
+    </div> -->
+    <div id="box2">
+        <button id="btn2">
+            get获取内容
+        </button>
+    </div>
+    
+    <div id="box3">
+        <button id="btn3">
+post获取内容
+        </button>
+    </div>
+    <script>
+    $(function(){
+        $("#btn0").click(function(){
+            $("#box1").load("ceshi.html #p",function(responseTxt,statusTxt,xhr){
+                if(statusTxt == "success"){
+                    alert("外部文件加载成功");
+                }
+                if(statusTxt == "error"){
+                    alert("Error :" +shr.status+":"+shr.statusText);
+                }
+            })
+        })
+   
+   
+    })
+    
+    $(function(){
+        $("#btn2").click(function(){
+           $.get("./json/txt.json",function(data,status){
+               var a = JSON.parse(data);
+               console.log(a.status);
+            //    alert("数据"+data+"\n状态："+status)
+           }) 
+        })
+    })
+    
+    $(function(){
+        $("#btn3").click(function(){
+            $.post("./json/txt.json",{
+                name:'post请求',
+                url:'YYjoke.work',
+            },function(data,status){
+               var a = JSON.parse(data);
+                alert("数据: \n" + a + "\n状态: " + status);
+            })
+        })
+    })
+    </script>
+
+    
+</body>
+</html>
