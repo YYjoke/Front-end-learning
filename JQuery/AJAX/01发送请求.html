@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('GET', './json/txt.json');
+
+        // 因为响应需要时间，所以无法通过返回值的方式返回响应
+        xhr.send()
+
+        // 因为客户端永远不知道服务端何时才能返回我们需要的响应
+        // 所以AJAX API 采用事件的机制（通知的感觉）   
+
+        xhr.onreadystatechange = function () {
+            // 这个事件并不是只在响应式触发，XHR 状态改变就触发
+
+            if (this.readyState != 4) return
+            //    获取响应体
+            //    var a = JSON.parse(this.responseText)
+            console.log(this.responseText)
+        }
+    </script>
+</body>
+
+</html>

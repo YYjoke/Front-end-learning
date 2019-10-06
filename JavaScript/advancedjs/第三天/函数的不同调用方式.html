@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // 普通函数
+    function f1(){
+console.log("我是普通函数")
+    }
+    f1();
+
+    // 构造函数
+    function F1(){
+console.log("我是构造函数")
+    }
+    var f = new F1();
+
+    // 对象函数
+
+    function Person(){
+        this.play = function (){
+            console.log("我是对象函数")
+        }
+    }
+
+    var per = new Person();
+    per.play();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
