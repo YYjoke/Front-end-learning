@@ -1,6 +1,6 @@
-# demo
+# exercise_1
 
-> a vue.js project
+> practice using
 
 ## Build Setup
 

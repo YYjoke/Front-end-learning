@@ -1,8 +1,8 @@
 {
-  "name": "demo",
+  "name": "exercise_1",
   "version": "1.0.0",
-  "description": "a vue.js project",
-  "author": "YKjoke@163.com",
+  "description": "practice using",
+  "author": "YYjoke",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

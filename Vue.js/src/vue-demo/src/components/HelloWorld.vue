@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <father text="注册" text2="信息" @message="getMeaasge"></father>
     <ul>
       <li>
         <a
@@ -84,11 +85,22 @@
 </template>
 
 <script>
+import father from "./father"
+import son from "./son"
 export default {
+  components:{
+    father,
+    son
+  },
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods:{
+    getMeaasge(val){
+      alert(val);
     }
   }
 }
