@@ -1,0 +1,8 @@
+Node.js是什么？
+
+Node.js不是一门语言
+Node.js不是库，不是框架
+Node.js是一个JavaScript运行环境
+简单点来讲就是Node.js可以解析和执行JavaScript代码
+以前只有浏览器可以解析执行JavaScript代码
+现在的JavaScript可以完全脱离浏览器来运行 这一切都归功于Node.js
