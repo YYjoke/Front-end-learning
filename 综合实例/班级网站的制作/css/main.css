@@ -1,0 +1,119 @@
+#header{
+    height:334px;
+    background:url('../img/bg.jpg') no-repeat left center;
+}
+#header .logo{
+    position: absolute;
+    left: 33px;
+    top: 145px;
+}
+ul{
+    list-style: none;
+}
+
+.nav{
+    position: absolute;
+    left: 16px;
+    top: 32px;
+    overflow: hidden;
+}
+.nav li{
+    float: left;
+    font-size: 17px;
+    padding: 0 28px;
+    background: url('../img/bg.jpg') no-repeat left center;
+}
+.nav li a:link{
+text-decoration: none;
+color: #949494;
+}
+
+.nav li a:hover,.nav li a:active{
+color: #89b700
+}
+#content .indent{
+    padding: 30px 20px 98px 308px;
+}
+#content .welcome{
+    padding-bottom: 20px;
+}
+
+#listItem li{
+    padding-left: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+    background: url('../img/bg.jpg') no-repeat left center;
+    font-size: 15px;
+}
+#listItem a:link{
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+#listItem a:hover{
+    text-decoration: underline;
+    color: #517208;
+}
+#listItem a:active{
+    text-decoration: underline;
+    color: #517208;
+}
+#footer{
+    height: 77px;
+    float: none;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+#content{
+    background: url('../img/bg.jpg') no-repeat left center;
+    height: 566px;
+}
+#contacts-form{
+    clear: right;
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 0 0 0;
+}
+#contacts-form fieldset{
+border: none;
+float: left;
+}
+#contacts-form .field{
+    clear: both;
+}
+#contacts-form label{
+    float: left;
+    width: 97px;
+    line-height: 20px;
+    padding-bottom: 6px;
+    font-weight: bold;
+    color: #89b700;
+    font-size: 14px;
+
+}
+#contacts-form input{
+   width: 231px;
+   padding: 1px 0 1px 3px;
+border: 1px solid #897b00;
+color: #70635b;
+}
+
+#contacts-form textarea{
+    width: 567px;
+    height: 227px;
+    padding: 1px 0 1px 3px;
+    color: #70635b;
+    border: 1px solid #89b700;
+    margin-bottom: 15px;
+    overflow: auto;
+}
+
+.aligncenter{
+    text-align: center;
+}
+
+#contacts-form fieldset .aligncenter input{
+width: 60px;
+height: 20px;
+}
