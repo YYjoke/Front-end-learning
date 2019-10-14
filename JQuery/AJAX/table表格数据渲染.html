@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
+<script>
+$(function(){
+    $.ajax({
+        url:'../AJAX/json/table.json',
+        type:'get',
+        dataType:'json',
+        success:function(data){
+            //方法中传入的参数data为后台获取的数据
+            console.log(data.data[0])
+            for(i in data.data) //data.data指的是数组，i为数组的索引
+            {
+                var tr;
+                tr='<td>'+data.data[i].name+'</td>'+'<td>'+data.data[i].startTime+'</td>'+'<td>'+data.data[i].is_true+'</td>'+'<td>'+data.data[i].device+'</td>'
+                $("#tabletest").append('<tr>'+tr+'</tr>')
+            }
+        }
+    })
+})
+</script>
+</head>
+
+<body>
+
+    <table class="table table-bordered" id='tabletest'>
+        <tr>
+            <th>名字</th>
+            <th>开始时间</th>
+            <th>是否真实</th>
+            <th>设备</th>
+        </tr>
+     </table>
+ 
+</body>
+
+</html>

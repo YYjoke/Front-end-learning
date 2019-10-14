@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+              
+    <button id="send" class="box" value="开始" >
+开始
+    </button>
+
+    <script>
+    
+
+    $(function () {
+    
+      $('#send').click(function () {
+        $.ajax({
+          url: "save",
+          type: 'post',
+          dataType: 'json',
+          contentType:"application/json",
+        data: JSON.stringify(1),
+          success:function () {
+            console.log("排队成功")
+          },
+          error: function (result) {
+            alert("排队成功")
+            console.log("fail");
+          }
+        });
+      });
+
+  
+    });
+    
+    </script>
+</body>
+</html>
+
+
+
