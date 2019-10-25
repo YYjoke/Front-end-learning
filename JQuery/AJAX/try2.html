@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .nav li:hover,
+        .selected {
+            background-color: #ecebeb;
+            border-left: 1px solid #ecebeb;
+        }
+
+        .nav {
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .nav li {
+            float: left;
+            margin: 20px;
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .red {
+            color: red
+        }
+
+        .content {
+            height: 80px;
+            padding: 10px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li class="selected">姓名</li>
+        <li>年龄</li>
+        <li>性别</li>
+        <li>班级</li>
+    </ul>
+    <div class="content">
+        <div class="list">
+            <p>姓名</p>
+            <p>这是姓名</p>
+        </div>
+        <div class="list">
+            <p>年龄</p>
+            <p>这是年龄</p>
+        </div>
+        <div class="list">
+            <p>性别</p>
+            <p>这是性别</p>
+        </div>
+        <div class="list">
+            <p>班级</p>
+            <p>这是班级</p>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var $li = $('.nav li')
+            $li.mousemove(function () {
+                $(this).addClass('red')
+            })
+            $li.mouseleave(function () {
+                $(this).removeClass('red')
+            })
+            $li.click(function () {
+                var $divshow = $('.content').children('list');
+                if (!$(this).hasClass('selected')) {
+              
+
+                    var index = $(this).index();
+                    $(this).addClass('selected').siblings('li').removeClass('selected');
+                    $($divshow[index]).show();
+                    $($divshow[index]).siblings('.list').hide();
+                    console.log('hello')
+
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>

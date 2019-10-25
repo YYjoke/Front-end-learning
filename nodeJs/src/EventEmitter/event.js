@@ -48,3 +48,4 @@ emitter2.emit('someEvent', 'arg1参数', 'arg2参数')
 
 
 
+
