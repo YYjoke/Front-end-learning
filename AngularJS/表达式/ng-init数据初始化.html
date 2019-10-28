@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据初始化</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="" ng-init="person={name:'小红',high:'160cm'}">
+        <p>
+            这个人的名字是：<span ng-bind="person.name"></span>
+            <br>
+            这个人的身高是：<span ng-bind="person.high"></span>
+        </p>
+        <p>
+            这个人的名字是：{{person.name}}
+            <br>
+            这个人的身高是：{{person.high}}
+        </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表达式</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script> 
+</head>
+<body>
+    <div ng-app="" ng-init="a=1;b=2">
+        <p>
+            算出表达式里面的和{{5+5}}
+        </p>
+        <p>
+               这是通过"{"{""}""}"算出来的 a+b={{a+b}}
+         </p>
+         <p>
+             这是通过ng-bind算出来的 a+b=<span ng-bind="a+b"></span>
+         </p>
+    </div>
+</body>
+</html>

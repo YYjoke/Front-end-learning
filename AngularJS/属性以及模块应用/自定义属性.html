@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <title>自定义属性</title>
+</head>
+<body>
+    
+<!-- HTML5允许扩展的属性 以data开头  -->
+<!-- AngularJS属性以ng-开头  但是可以使用data-ng-来让网页对H5生效 -->
+
+<div data-ng-app="" data-ng-init="name='jone'">
+
+    <p>
+        姓名为：<span data-ng-bind="name">
+
+        </span>
+    </p>
+</div>
+</body>
+</html>
