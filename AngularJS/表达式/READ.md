@@ -12,3 +12,11 @@ AngularJS 表达式 很像 JavaScript 表达式：它们可以包含文字、运
 
 
 ng-init 是一种数据初始化方式
+
+ng-bind和{{}} 作用是一样的
+
+AngularJS表达式与JavaScript表达式
+类似于JavaScript表达式，AngularJS表达式可能包含字母，操作符，变量
+与JavaScript表达式不同，Angular表达式可以写在HTML中
+与JavaScript表达式不同，AngularJS表达式不支持条件判断，循环异常
+与JavaScript表达式不同，AngularJS表达式支持过滤器

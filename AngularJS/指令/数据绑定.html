@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据绑定</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="" ng-init="a='';b=''">
+
+            <p>
+            计算价格
+            </p>
+            价格一<input type="text" ng-model="a">
+            价格二<input type="text" ng-model="b">
+            <p>
+                总价<span ng-bind="a*b"></span>
+            </p>
+    </div>
+</body>
+</html>
