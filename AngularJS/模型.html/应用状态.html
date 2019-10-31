@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模型</title>
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<form ng-app="" name="myForm" ng-init="myText='test@runoob.com'">
+    Email:
+    <input type="email" name="myAddress" ng-model="myText" required>
+    <h1>状态</h1>
+    <p>
+         volid:   {{myForm.myAddress.$valid}}
+    </p>
+    <p>
+         dirty:   {{myForm.myAddress.$dirty}}
+    </p>
+    <p>
+       touched:     {{myForm.myAddress.$touched}}
+    </p>
+</form>
+</body>
+</html>
