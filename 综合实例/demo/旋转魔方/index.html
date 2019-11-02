@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转魔方</title>
+    <style>
+
+        /* 最外层容器 */
+        .wrap{
+            width: 200px;
+            height: 200px;
+            margin: 200px;
+            position: relative;
+        }
+        /* 外部容器 */
+        .cube {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            transform: rotateX(-30deg) rotateY(-80deg);
+            animation: rotate linear 20s infinite;
+        }
+        @keyframes rotate{
+            from{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+      /* 外部图片容器 */
+      .cube div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.6;
+            transition:all .4s;
+        }
+        
+        /* 外部图片 */
+        .pic {
+            width: 100%;
+            height: 100%;
+        }
+  
+        .cube .out_front{
+            transform: rotateY(0deg) translateZ(100px);
+        }
+        .cube .out_back{
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+        .cube .out_left{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .cube .out_right{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .cube .out_top{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .cube .out_bottom{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        /* 内部小正方型 */
+        .cube span {
+			display: block;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 50px;
+			left: 50px;
+            opacity: 0.8;
+		}
+
+		.cube .in_pic {
+			width: 100px;
+			height: 100px;
+		}
+
+		.cube .in_front {
+			transform: rotateY(0deg) translateZ(50px);
+		}
+
+		.cube .in_back {
+			transform: translateZ(-50px) rotateY(180deg);
+		}
+
+		.cube .in_left {
+			transform: rotateY(-90deg) translateZ(50px);
+		}
+
+		.cube .in_right {
+			transform: rotateY(90deg) translateZ(50px);
+		}
+
+		.cube .in_top {
+			transform: rotateX(90deg) translateZ(50px);
+		}
+
+		.cube .in_bottom {
+			transform: rotateX(-90deg) translateZ(50px);
+		}
+
+		/*鼠标移入后外层样式*/
+		.cube:hover .out_front {
+			transform: rotateY(0deg) translateZ(200px);
+		}
+
+		.cube:hover .out_back {
+			transform: translateZ(-200px) rotateY(180deg);
+		}
+
+		.cube:hover .out_left {
+			transform: rotateY(-90deg) translateZ(200px);
+		}
+
+		.cube:hover .out_right {
+			transform: rotateY(90deg) translateZ(200px);
+		}
+
+		.cube:hover .out_top {
+			transform: rotateX(90deg) translateZ(200px);
+		}
+
+		.cube:hover .out_bottom {
+			transform: rotateX(-90deg) translateZ(200px);
+		}
+        	/*鼠标移入后内层样式*/
+		.cube:hover .in_front {
+			transform: rotateY(0deg) translateZ(100px);
+		}
+
+		.cube:hover .in_back {
+			transform: translateZ(-100px) rotateY(180deg);
+		}
+
+		.cube:hover .in_left {
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+
+		.cube:hover .int_right {
+			transform: rotateY(90deg) translateZ(100px);
+		}
+
+		.cube:hover .in_top {
+			transform: rotateX(90deg) translateZ(100px);
+		}
+
+		.cube:hover .in_bottom {
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+        /* 小球 */
+        .boll{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .boll_pic{
+        width:100%;
+        height:100%;
+        border-radius:50%; 
+    }
+    .cube .heng{
+        transform: rotateX(45deg)
+    }
+    .cube .xie{
+        transform:rotateY(90deg)
+    }
+    .cube .shu{
+        transform:rotateZ(90deg)
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 最外层最大的容器 -->
+    <div class="wrap">
+        <!-- 包裹所有元素的容器 -->
+        <div class="cube">
+            <!-- 前面图片 -->
+            <div class="out_front"><img class="pic" src="./img/1.jpg" alt=""></div>
+            <!-- 后面图片 -->
+            <div class="out_back"><img class="pic" src="./img/2.jpg" alt=""></div>
+            <!-- 左面图片 -->
+            <div class="out_left"><img class="pic" src="./img/3.jpg" alt=""></div>
+            <!-- 右面图片 -->
+            <div class="out_right"><img class="pic" src="./img/4.jpg" alt=""></div>
+            <!-- 上面图片 -->
+            <div class="out_top"><img class="pic" src="./img/5.jpg" alt=""></div>
+            <!-- 下面图片 -->
+            <div class="out_bottom"><img class="pic" src="./img/6.jpg" alt=""></div>
+            		<!--小正方体 -->
+			<span class="in_front">
+                    <img src="./img/2.jpg" class="in_pic" />
+                </span>
+                <span class="in_back">
+                     <img src="./img/3.jpg" class="in_pic" />
+                </span>
+                <span class="in_left">
+                    <img src="./img/4.jpg" class="in_pic" />
+                </span>
+                <span class="in_right">
+                    <img src="./img/5.jpg" class="in_pic" />
+                </span>
+                <span class="in_top">
+                    <img src="./img/6.jpg" class="in_pic" />
+                </span>
+                <span class="in_bottom">
+                    <img src="./img/1.jpg" class="in_pic" />
+                </span>
+                <span class="shu boll"><img class="boll_pic" src="./img/3.jpg" alt=""></span>
+            <span class="heng boll"><img class="boll_pic" src="./img/3.jpg" alt=""></span>
+            <span class="xie boll"><img class="boll_pic" src="./img/3.jpg" alt=""></span>
+        </div>
+    </div>
+</body>
+
+</html>
